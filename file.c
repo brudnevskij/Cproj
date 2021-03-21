@@ -67,3 +67,33 @@ int read(char * filename, int pos){
     fclose(fp);
     return buffer[0];
 }
+
+void bmp_analyzer(int dummy[], int header[], int start, double weights[3])
+    {
+        for(int j = 0; j<dummy[22]; j++){
+        
+        
+        
+            for(int i = 0; i < dummy[18]; i++){
+        
+                double filepxl[3] = {(float)header[start+2+(3*i)]/255, (float)header[start+1+(3*i)]/255,(float)header[start+(3*i)]/255 };
+                if (think_an(filepxl, weights)> 0.4)
+                {
+                    dummy[start+2+(3*i)]= header[start+2+(3*i)];
+                    dummy[start+1+(3*i)]=header[start+1+(3*i)];
+                    dummy[start+(3*i)]=header[start+(3*i)];
+                    printf("dummy: %d\n %d\n %d\n",dummy[start+2+(3*i)], dummy[start+1+(3*i)],dummy[start+(3*i)]);
+                }   
+            
+            
+        }
+        start+= header[18]*3;
+        start++;
+        dummy[start]= 0;
+        start++;
+        dummy[start] = 0;
+           
+        
+        
+    }
+    }
