@@ -138,7 +138,6 @@ int main (int argc, char *argv[]){
 
 
     //analysis of first picture 
-    int gapskiper = 0;
     int start = dummy[10];
     for(int j = 0; j<dummy[22]; j++){
         

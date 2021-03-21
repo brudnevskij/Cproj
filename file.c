@@ -11,14 +11,12 @@ int randomf(int header[])
 
     // setting of random colours
     int start = header[10];
-    int gapskip = 0;
     for(int j = 0; j< header[22]; j++){
     
 
         for(int i = 0 ; i< 3*header[18] ; i++){
             header[start+i] = (int)((float)rand()/RAND_MAX*255); 
 
-            gapskip++;
         }
         start += 3 * header[18];
         start++;
